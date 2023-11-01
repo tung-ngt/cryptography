@@ -52,9 +52,20 @@ int fastModExp(unsigned int x, unsigned int exp, unsigned int modular)
   return r;
 }
 
-int main()
+int main(int argc, char * argv[])
 {
-  int r = fastModExp(856, 25, 7);
+  int x = 856;
+  int exp = 25;
+  int modular = 7;
+
+  if (argc == 4)
+  {
+    x = atoi(argv[1]);
+    exp = atoi(argv[2]);
+    modular = atoi(argv[3]);
+  }
+
+  int r = fastModExp(x, exp, modular);
   std::cout << "final remainder: " << r << "\n";
   return 0;
 }
